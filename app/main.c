@@ -9,16 +9,6 @@ static volatile uint8_t rxdata;
 static Shell shell;
 static char shell_buffer[512];
 
-static signed short _shell_read(char *data, unsigned short len)
-{
-    if (rxdata != 0) {
-        *data = rxdata;
-        rxdata = 0;
-        return 1;
-    }
-    return 0;
-}
-
 static signed short _shell_write(char *data, unsigned short len)
 {
     for (unsigned short i = 0; i < len; i++)
@@ -44,13 +34,15 @@ int main(void)
     uart_recv_callback_register(uart_rx_handler);
 
 
-    shell.read = _shell_read;
     shell.write = _shell_write;
     shellInit(&shell, shell_buffer, sizeof(shell_buffer));
 
 
     while (1)
     {
-        shellTask(&shell);
+        if (rxdata != 0) {
+            shellHandler(&shell, rxdata);
+            rxdata = 0;
+        }
     }
 }
