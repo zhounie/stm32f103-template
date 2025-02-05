@@ -10,7 +10,7 @@
       <TargetName>project</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5.06u7</pCCUsed>
+      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -184,9 +184,6 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
-            <RvdsMve>0</RvdsMve>
-            <RvdsCdeCp>0</RvdsCdeCp>
-            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -327,7 +324,6 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
-            <uGnu>1</uGnu>
             <useXO>0</useXO>
             <v6Lang>3</v6Lang>
             <v6LangP>3</v6LangP>
@@ -338,9 +334,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
+              <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD,NDEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath>..\app\inc;..\driver\led;..\driver\uart;..\firmware\cmsis\core;..\firmware\dirver\inc;..\firmware\cmsis\device;..\third_lib\lettershell</IncludePath>
+              <IncludePath>..\app\inc;..\driver\led;..\driver\uart;..\firmware\cmsis\core;..\firmware\dirver\inc;..\firmware\cmsis\device;..\third_lib\lettershell;..\third_lib\ringbuffer;..\third_lib\tlsf</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -353,7 +349,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <ClangAsOpt>1</ClangAsOpt>
+            <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -393,6 +389,16 @@
               <FileName>board.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\app\board.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>app/commands</GroupName>
+          <Files>
+            <File>
+              <FileName>mem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\commands\mem.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -569,6 +575,16 @@
               <FileType>1</FileType>
               <FilePath>..\third_lib\lettershell\shell_ext.c</FilePath>
             </File>
+            <File>
+              <FileName>ringbuffer8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\third_lib\ringbuffer\ringbuffer8.c</FilePath>
+            </File>
+            <File>
+              <FileName>tlsf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\third_lib\tlsf\tlsf.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -580,14 +596,5 @@
     <components/>
     <files/>
   </RTE>
-
-  <LayerInfo>
-    <Layers>
-      <Layer>
-        <LayName>stm32f103</LayName>
-        <LayPrjMark>1</LayPrjMark>
-      </Layer>
-    </Layers>
-  </LayerInfo>
 
 </Project>

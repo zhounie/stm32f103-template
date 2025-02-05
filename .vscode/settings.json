@@ -2,6 +2,9 @@
     "files.associations": {
         "stm32f10x.h": "c",
         "string.h": "c",
-        "uart.h": "c"
+        "uart.h": "c",
+        "cstdlib": "c",
+        "tlsf.h": "c",
+        "cmath": "c"
     }
 }
