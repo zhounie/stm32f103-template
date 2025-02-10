@@ -5,6 +5,7 @@
 #include "shell.h"
 #include "ringbuffer8.h"
 #include "tlsf.h"
+#include "elog.h"
 
 extern void board_lowlevel_init(void);
 
@@ -47,6 +48,24 @@ int main(void)
     board_lowlevel_init();
     uart_init();
     uart_recv_callback_register(uart_rx_handler);
+
+    elog_init();
+
+    elog_set_fmt(ELOG_LVL_ASSERT, ELOG_FMT_ALL);
+    elog_set_fmt(ELOG_LVL_ERROR, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
+    elog_set_fmt(ELOG_LVL_WARN, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
+    elog_set_fmt(ELOG_LVL_INFO, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
+    elog_set_fmt(ELOG_LVL_DEBUG, ELOG_FMT_ALL & ~ELOG_FMT_FUNC);
+    elog_set_fmt(ELOG_LVL_VERBOSE, ELOG_FMT_ALL & ~ELOG_FMT_FUNC);
+
+    elog_start();
+
+    log_a("This is an assert log");
+    log_e("This is an error log");
+    log_w("This is a warning log");
+    log_i("This is an info log");
+    log_d("This is a debug log");
+    log_v("This is a verbose log");
 
     rx_ringbuffer = rb8_new(rx_buff, sizeof(rx_buff));
 

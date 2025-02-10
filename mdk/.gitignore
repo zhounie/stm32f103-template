@@ -1,1 +1,80 @@
-Objects/**
+# Keil uVision Project Files
+*.bak
+*.dep
+*.d
+*.hex
+*.lst
+*.map
+*.o
+*.obj
+*.out
+*.sct
+*.so
+*.sym
+*.uvgui
+*.uvproj
+*.uvprojx
+*.uvopt
+*.uvoptx
+*.user
+*.settings
+*.cache
+*.tmp
+*.log
+
+# Build directories
+Debug/
+Release/
+Output/
+Build/
+obj/
+bin/
+
+# Keil-generated files
+*.bak
+*.dep
+*.d
+*.hex
+*.lst
+*.map
+*.o
+*.obj
+*.out
+*.sct
+*.so
+*.sym
+*.uvgui
+*.uvproj
+*.uvprojx
+*.uvopt
+*.uvoptx
+*.user
+*.settings
+*.cache
+*.tmp
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Keil-specific directories
+.uvoptx
+.uvprojx
+.uvopt
+.uvproj
+.uvgui
+
+# User-specific files
+*.user
+*.settings
+
+# Cache and log files
+*.cache
+*.log
